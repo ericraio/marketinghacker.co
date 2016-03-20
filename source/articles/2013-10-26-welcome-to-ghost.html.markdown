@@ -1,5 +1,6 @@
 ---
-title: Welcome to Ghost
+slug: new-post
+title: New Post
 date: 2013-10-26
 tags: Getting Started
 layout: post
