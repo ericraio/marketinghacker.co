@@ -5,16 +5,16 @@
   <id>http://hacker.marketing</id>
   <link href="http://hacker.marketing"/>
   <link href="http://hacker.marketing/tag/getting-started/feed.xml" rel="self"/>
-  <updated>2013-10-25T17:00:00-07:00</updated>
+  <updated>2013-10-26T00:00:00-07:00</updated>
   <author>
     <name>Eric Raio</name>
   </author>
   <entry>
-    <title>Welcome to Ghost</title>
-    <link rel="alternate" href="http://hacker.marketing/2013/10/26/welcome-to-ghost/"/>
-    <id>http://hacker.marketing/2013/10/26/welcome-to-ghost/</id>
-    <published>2013-10-25T17:00:00-07:00</published>
-    <updated>2016-03-20T11:50:42-07:00</updated>
+    <title>New Post</title>
+    <link rel="alternate" href="http://hacker.marketing/new-post/"/>
+    <id>http://hacker.marketing/new-post/</id>
+    <published>2013-10-26T00:00:00-07:00</published>
+    <updated>2016-03-20T16:36:57-07:00</updated>
     <author>
       <name>Eric Raio</name>
     </author>

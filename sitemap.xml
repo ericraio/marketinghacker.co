@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://hacker.marketing/2013/10/26/welcome-to-ghost/index.html</loc>
-    <lastmod>2016-03-20T11:50:42-07:00</lastmod>
+    <loc>http://hacker.marketing/new-post/index.html</loc>
+    <lastmod>2016-03-20T16:36:57-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://hacker.marketing/author/eric-raio/index.html</loc>
-    <lastmod>2016-03-20T15:30:16-07:00</lastmod>
+    <lastmod>2016-03-20T16:41:30-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://hacker.marketing/index.html</loc>
-    <lastmod>2016-03-20T15:30:16-07:00</lastmod>
+    <lastmod>2016-03-20T16:41:30-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://hacker.marketing/tag/getting-started/index.html</loc>
-    <lastmod>2016-03-20T15:30:16-07:00</lastmod>
+    <lastmod>2016-03-20T16:41:30-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
