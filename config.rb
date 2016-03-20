@@ -151,9 +151,6 @@ after_configuration do
 end
 
 activate :deploy do |deploy|
-  deploy.method = :git
-  deploy.branch = 'source'
+  deploy.deploy_method = :git
   deploy.build_before = true
 end
-
-activate :directory_indexes
