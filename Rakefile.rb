@@ -10,6 +10,7 @@ end
 namespace :deploy do
   task :schedule do
     deploy :schedule
+    system "git checkout master"
     system "git add schedule.txt"
     system "git commit -m 'setting schedule for next post'"
     system "git push origin master"

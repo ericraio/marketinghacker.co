@@ -63,36 +63,6 @@ def group_lookup(resource, sum)
   end
 end
 
-def path
-  'schedule.txt'
-end
-
-def process_next_scheduled_date
-  time = read_time
-  if time.present?
-    datetime = DateTime.parse(time)
-    if datetime > Time.now
-      write_time(datetime)
-    else
-      write_time
-    end
-  else
-    write_time
-  end
-end
-
-def read_time
-  time = IO.readlines(path)[0]
-  time ||= ''
-  time.chomp
-end
-
-def write_time(datetime = nil)
-  datetime ||= Time.now
-  File.open(path, 'w') {  |f| f.puts(datetime.next_week(:tuesday) + 10.hours) }
-end
-
-
 tags = resources
   .select { |resource| resource.data.tags }
   .each_with_object({}, &method(:group_lookup))
@@ -183,19 +153,8 @@ after_configuration do
   sprockets.append_path "#{root}/source/bower_components"
 end
 
-# config.rb
-case ENV['TARGET'].to_s.downcase
-when 'schedule'
-  activate :deploy do |deploy|
-    deploy.deploy_method = :git
-    deploy.build_before = true
-    deploy.branch = 'scheduled'
-    deploy.commit_message = read_time
-  end
-  process_next_scheduled_date
-else
-  activate :deploy do |deploy|
-    deploy.deploy_method = :git
-    deploy.build_before = true
-  end
+activate :deploy do |deploy|
+  deploy.deploy_method = :git
+  deploy.build_before = true
+  deploy.branch = 'scheduled'
 end
