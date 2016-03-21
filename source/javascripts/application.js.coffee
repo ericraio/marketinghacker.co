@@ -6,6 +6,7 @@
 $(document).ready () =>
   $('#fullpage').fullpage({
     scrollOverflow: true
+    paddingTop: '0px',
     afterLoad: (anchorLink, index) =>
         $(this).slimScroll({ scrollTo: '0px' })
   })
