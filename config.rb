@@ -197,6 +197,5 @@ else
   activate :deploy do |deploy|
     deploy.deploy_method = :git
     deploy.build_before = true
-    deploy.branch = 'gh-pages'
   end
 end
