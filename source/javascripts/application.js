@@ -5,12 +5,18 @@
 //= require vendor/casper
 //= require lunr.js/lunr
 //= require handlebars/handlebars
+//= require js-cookie/src/js.cookie
 
 
 jQuery(function($) {
+  if(Cookies.get('welcomeMat') === 'true') {
+    $('.welcome-mat').remove();
+  }
+
   $('#fullpage').fullpage({
     scrollOverflow: true,
     paddingTop: '0px',
+    sectionsColor: ['#F6F8F8', '#FFF'],
     onLeave: function(index, nextIndex, direction) {
       if (nextIndex === 1) {
         return false;

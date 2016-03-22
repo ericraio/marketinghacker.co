@@ -19,6 +19,65 @@ button:focus {
   outline: none;
 }
 
+.welcome-mat {
+  text-align: center;
+  h6 {
+    color: #9A9A9A;
+    font-size: 25px;
+    font-weight: 300;
+  }
+
+  input, button {
+    margin-top: 50px;
+  }
+
+  input {
+    height: 25px;
+    padding: 20px;
+    border-radius: 3px;
+    border: 1px solid #74AC58;
+
+    &::-webkit-input-placeholder {
+      font-family: sans-serif;
+      font-size: 22px;
+      color: #999;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+      font-family: sans-serif;
+      font-size: 22px;
+      color: #999;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+      font-family: sans-serif;
+      font-size: 22px;
+      color: #999;
+    }
+
+    &:-ms-input-placeholder {
+      font-family: sans-serif;
+      font-size: 22px;
+      color: #999;
+    }
+  }
+
+  button {
+    height: 67px;
+    border-radius: 0px 3px 3px 0px;
+    border: 1px solid #74AC58;
+    background: #74AC58;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    left: -6px;
+    top: -1px;
+    font-family: sans-serif;
+    font-weight: 400;
+    color: #F6F8F8;
+  }
+}
+
 .nav-search {
   width: 204px;
   float: right;
@@ -113,3 +172,16 @@ button:focus {
   }
 }
 
+.scroll-down {
+  font-size: 33px;
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+  border-radius: 50%;
+
+  .icon-arrow-left {
+    margin-left: -5px;
+    display: inline-block;
+    margin-top: 1px;
+  }
+}
