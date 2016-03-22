@@ -3,6 +3,7 @@
 #= require fullpage.js/dist/jquery.fullpage
 #= require selection-sharer/dist/selection-sharer
 #= require vendor/casper
+#= require lunr.min
 
 $(document).ready () =>
   $('#fullpage').fullpage({

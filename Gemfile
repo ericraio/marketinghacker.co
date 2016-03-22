@@ -14,6 +14,7 @@ gem 'middleman', '>= 4.0.0'
 gem 'middleman-blog', github: 'middleman/middleman-blog'
 gem 'middleman-sprockets', '~> 4.0.0.rc'
 gem 'middleman-deploy'
+gem 'middleman-search'
 gem 'byebug'
 gem 'activesupport'
 
