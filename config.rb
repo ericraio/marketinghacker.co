@@ -161,14 +161,3 @@ activate :deploy do |deploy|
   deploy.build_before = true
   deploy.branch = 'scheduled'
 end
-
-activate :search do |search|
-  search.resources = ['/', '']
-  search.index_path = 'search/lunr-index.json' # defaults to `search.json`
-  search.fields = {
-    title:   {boost: 100, store: true, required: true},
-    content: {boost: 50},
-    url:     {index: false, store: true},
-    author:  {boost: 30}
-  }
-end
