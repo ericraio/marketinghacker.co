@@ -6,6 +6,7 @@ task :deploy do
   system("git checkout gh-pages")
   system("git merge scheduled")
   system("git push origin gh-pages")
+  system("git checkout master")
 end
 
 task :sync_draft do
