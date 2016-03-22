@@ -2,6 +2,7 @@
 //= require fullpage.js/dist/jquery.fullpage
 //= require selection-sharer/dist/selection-sharer
 //= require _syntax
+//= require fonts
 
 // Overwrite some styles from casper.css
 pre.highlight {
@@ -10,3 +11,105 @@ pre.highlight {
     white-space: pre;
   }
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.nav-search {
+  width: 204px;
+  float: right;
+}
+
+.nav-opened {
+  .nav-search {
+    position: relative;
+    left: 100px;
+  }
+
+  .nav-search-button {
+    top: 0;
+  }
+}
+
+.nav-search-button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 35px;
+  z-index: 10;
+  margin-left: 50px;
+  margin-top: 6px;
+}
+
+.selectize-control {
+  display: flex;
+  margin-right: 20px;
+}
+
+.search-results {
+  box-sizing: border-box;
+  border: 1px solid #dfe1e3;
+  border-top: 0 none;
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 3px 6px rgba(0,0,0,.1);
+  width: 184px;
+  position: relative;
+  top: -1px;
+  visibility: visible;
+  z-index: 100;
+  font-size: 14px;
+  text-align: left;
+  a {
+    margin-left: 5px;
+  }
+}
+
+.selectize-input {
+  padding: 4px 30px 4px 8px;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #dfe1e3;
+  border-radius: 4px;
+  color: #666;
+  transition: border-color .15s linear;
+  background: #fff;
+  font-size: 1.3rem;
+  cursor: text;
+}
+
+.selectize-input input {
+  opacity: 1;
+  position: relative;
+  left: 0px;
+  display: inline-block;
+  margin: 0 1px;
+  padding: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: none;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  text-indent: 0;
+  line-height: inherit;
+  color: #303030;
+  vertical-align: baseline;
+  zoom: 1;
+}
+
+@media (max-width: 499px) {
+  .nav-search-button {
+    top: 5px;
+  }
+}
+

@@ -1,0 +1,373 @@
+@font-face {
+    font-family: "ghosticons";
+    src:url("../fonts/ghosticons.eot?v=1");
+    src:url("../fonts/ghosticons.eot?v=1#iefix") format("embedded-opentype"),
+        url("../fonts/ghosticons.woff?v=1") format("woff"),
+        url("../fonts/ghosticons.ttf?v=1") format("truetype"),
+        url("../fonts/ghosticons.svg?v=1#icons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: "casper-icons";
+    src:url("../fonts/casper-icons.eot?v=1");
+    src:url("../fonts/casper-icons.eot?v=1#iefix") format("embedded-opentype"),
+        url("../fonts/casper-icons.woff?v=1") format("woff"),
+        url("../fonts/casper-icons.ttf?v=1") format("truetype"),
+        url("../fonts/casper-icons.svg?v=1#icons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    text-decoration: none !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before {
+  font-family: ghosticons;
+  content: "\e000";
+}
+.icon-search:before {
+  font-family: ghosticons;
+  content: "\e001";
+}
+.icon-design:before {
+  font-family: ghosticons;
+  content: "\e003";
+}
+.icon-content:before {
+  font-family: ghosticons;
+  content: "\e004";
+}
+.icon-x:before {
+  font-family: ghosticons;
+  content: "\e005";
+}
+.icon-add:before {
+  font-family: ghosticons;
+  content: "\e006";
+}
+.icon-apps:before {
+  font-family: ghosticons;
+  content: "\e007";
+}
+.icon-settings:before {
+  font-family: ghosticons;
+  content: "\e008";
+}
+.icon-front-end:before {
+  font-family: ghosticons;
+  content: "\e00a";
+}
+.icon-dash:before {
+  font-family: ghosticons;
+  content: "\e00b";
+}
+.icon-tag:before {
+  font-family: ghosticons;
+  content: "\e009";
+}
+.icon-compass:before {
+  font-family: ghosticons;
+  content: "\e002";
+}
+.icon-code:before {
+  font-family: ghosticons;
+  content: "\e00c";
+}
+.icon-team:before {
+  font-family: ghosticons;
+  content: "\e00d";
+}
+.icon-idea:before {
+  font-family: ghosticons;
+  content: "\e00e";
+}
+.icon-arrow:before {
+  font-family: ghosticons;
+  content: "\e00f";
+}
+.icon-pen:before {
+  font-family: ghosticons;
+  content: "\e010";
+}
+.icon-clip:before {
+  font-family: ghosticons;
+  content: "\e011";
+}
+.icon-trash:before {
+  font-family: ghosticons;
+  content: "\e012";
+}
+.icon-edit:before {
+  font-family: ghosticons;
+  content: "\e013";
+}
+.icon-new:before {
+  font-family: ghosticons;
+  content: "\e014";
+}
+.icon-lock:before {
+  font-family: ghosticons;
+  content: "\e015";
+}
+.icon-link:before {
+  font-family: ghosticons;
+  content: "\e016";
+}
+.icon-chat:before {
+  font-family: ghosticons;
+  content: "\e017";
+}
+.icon-smiley:before {
+  font-family: ghosticons;
+  content: "\e018";
+}
+.icon-star:before {
+  font-family: ghosticons;
+  content: "\e019";
+}
+.icon-rss:before {
+  font-family: ghosticons;
+  content: "\e01b";
+}
+.icon-hotspot:before {
+  content: "\e01d";
+  font-family: ghosticons;
+}
+.icon-mail:before {
+  content: "\e01e";
+  font-family: ghosticons;
+}
+.icon-sound-on:before {
+  content: "\e01f";
+  font-family: ghosticons;
+}
+.icon-sound-off:before {
+  content: "\e020";
+  font-family: ghosticons;
+}
+.icon-download:before {
+  content: "\e021";
+  font-family: ghosticons;
+}
+.icon-upload:before {
+  content: "\e022";
+  font-family: ghosticons;
+}
+.icon-bell:before {
+  content: "\e023";
+  font-family: ghosticons;
+}
+.icon-shop:before {
+  content: "\e01c";
+  font-family: ghosticons;
+}
+.icon-box:before {
+  content: "\e024";
+  font-family: ghosticons;
+}
+.icon-connections:before {
+  content: "\e025";
+  font-family: ghosticons;
+}
+.icon-arrow-right:before {
+  font-family: ghosticons;
+  content: "\e01a";
+}
+.icon-arrow-left:before {
+  font-family: ghosticons;
+  content: "\e026";
+}
+.icon-arrow-up:before {
+  font-family: ghosticons;
+  content: "\e027";
+}
+.icon-ghost:before {
+  font-family: ghosticons;
+  content: "\e028";
+}
+.icon-dice:before {
+  font-family: ghosticons;
+  content: "\e029";
+}
+.icon-ambulance:before {
+  font-family: ghosticons;
+  content: "\e02a";
+}
+.icon-calendar:before {
+  font-family: ghosticons;
+  content: "\e02b";
+}
+.icon-folder:before {
+  font-family: ghosticons;
+  content: "\e02c";
+}
+.icon-pulse:before {
+  font-family: ghosticons;
+  content: "\e02d";
+}
+.icon-photos:before {
+  font-family: ghosticons;
+  content: "\e02e";
+}
+.icon-legal:before {
+  font-family: ghosticons;
+  content: "\e02f";
+}
+.icon-letter:before {
+  font-family: ghosticons;
+  content: "\e030";
+}
+.icon-grid:before {
+  font-family: ghosticons;
+  content: "\e031";
+}
+.icon-list:before {
+  font-family: ghosticons;
+  content: "\e032";
+}
+.icon-blog:before {
+  font-family: ghosticons;
+  content: "\e033";
+}
+.icon-question:before {
+  font-family: ghosticons;
+  content: "\e034";
+}
+.icon-error:before {
+  font-family: ghosticons;
+  content: "\e035";
+}
+.icon-power:before {
+  font-family: ghosticons;
+  content: "\e036";
+}
+.icon-markdown:before {
+  font-family: ghosticons;
+  content: "\e037";
+}
+.icon-external:before {
+  font-family: ghosticons;
+  content: "\e038";
+}
+.icon-arrow2:before {
+  content: "\e039";
+  font-family: ghosticons;
+}
+.icon-arrow2-up:before {
+  content: "\e03a";
+  font-family: ghosticons;
+}
+.icon-arrow2-left:before {
+  content: "\e03b";
+  font-family: ghosticons;
+}
+.icon-arrow2-right:before {
+  content: "\e03c";
+  font-family: ghosticons;
+}
+.icon-x2:before {
+  content: "\e03d";
+  font-family: ghosticons;
+}
+.icon-gh:before {
+  content: "\e03e";
+  font-family: ghosticons;
+}
+.icon-signout:before {
+  content: "\e036";
+  font-family: ghosticons;
+}
+.icon-minimise:before {
+  content: "\e03f";
+  font-family: ghosticons;
+}
+.icon-maximise:before {
+  content: "\e040";
+  font-family: ghosticons;
+}
+.icon-book:before {
+  content: "\e041";
+  font-family: ghosticons;
+}
+.icon-twitter:before {
+  content: "\e042";
+  font-family: ghosticons;
+}
+.icon-check:before {
+  content: "\e043";
+  font-family: ghosticons;
+}
+.icon-grab:before {
+  content: "\e044";
+  font-family: ghosticons;
+}
+.icon-add2:before {
+  content: "\e045";
+  font-family: ghosticons;
+}
+.icon-pause:before {
+  content: "\e046";
+  font-family: ghosticons;
+}
+.icon-play:before {
+  font-family: ghosticons;
+  content: "\e047";
+}
+
+/* Each icon is created by inserting the correct character into the
+   content of the :before pseudo element. Like a boss. */
+  .icon-ghost:before {
+    font-family: "casper-icons", "Open Sans", sans-serif;
+    content: "\f600";
+}
+.icon-feed:before {
+  font-family: "casper-icons", "Open Sans", sans-serif;
+  content: "\f601";
+}
+.icon-twitter:before {
+  font-family: "casper-icons", "Open Sans", sans-serif;
+  content: "\f602";
+  font-size: 1.1em;
+}
+.icon-google-plus:before {
+  font-family: "casper-icons", "Open Sans", sans-serif;
+  content: "\f603";
+}
+.icon-facebook:before {
+  font-family: "casper-icons", "Open Sans", sans-serif;
+  content: "\f604";
+}
+.icon-arrow-left:before {
+  font-family: "casper-icons", "Open Sans", sans-serif;
+  content: "\f605";
+}
+.icon-stats:before {
+  font-family: "casper-icons", "Open Sans", sans-serif;
+  content: "\f606";
+}
+.icon-location:before {
+  font-family: "casper-icons", "Open Sans", sans-serif;
+  content: "\f607";
+  margin-left: -3px; /* Tracking fix */
+}
+.icon-link:before {
+  font-family: "casper-icons", "Open Sans", sans-serif;
+  content: "\f608";
+}
+.icon-menu:before {
+  font-family: "casper-icons", "Open Sans", sans-serif;
+  content: "\f609";
+}

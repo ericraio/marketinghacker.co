@@ -18,6 +18,18 @@ per_page: 6
         <% if blog_settings.navigation %>
           <a href="#" class="menu-button icon-menu"><span class="word">Menu</span></a>
         <% end %>
+
+        <div class="nav-search">
+          <div class="selectize-control">
+            <div class="selectize-input">
+              <input type="text" autocomplete="off" tabindex="0" placeholder="Search" id="search-field">
+            </div>
+          </div>
+          <button class="nav-search-button"><i class="icon-search"></i></button>
+          <div class="search-results">
+          </div>
+        </div>
+
       </nav>
 
       <div class="vertical">
