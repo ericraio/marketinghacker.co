@@ -8,7 +8,7 @@ Time.zone = "America/Los_Angeles"
 config[:casper] = {
   blog: {
     url: 'http://hacker.marketing',
-    name: 'Hacker Marketing',
+    name: 'Marketing Hacker',
     description: 'Bridging the gap with Marketers and Developers',
     date_format: '%d %B %Y',
     navigation: true,
