@@ -9,20 +9,19 @@
 
 
 jQuery(function($) {
-  if(Cookies.get('welcomeMat') === 'true') {
-    $('.welcome-mat').remove();
-  }
-
-  $('#fullpage').fullpage({
-    scrollOverflow: true,
-    paddingTop: '0px',
-    sectionsColor: ['#F6F8F8', '#FFF'],
-    onLeave: function(index, nextIndex, direction) {
-      if (nextIndex === 1) {
-        return false;
+  if(Cookies.get('welcomeMat') !== 'true') {
+    $('.welcome-mat').css({ display: 'table' });
+    $('#fullpage').fullpage({
+      scrollOverflow: true,
+      paddingTop: '0px',
+      sectionsColor: ['#F6F8F8', '#FFF'],
+      onLeave: function(index, nextIndex, direction) {
+        if (nextIndex === 1) {
+          return false;
+        }
       }
-    }
-  });
+    });
+  }
 
   $('.scroll-down a').click(function(e) {
     e.preventDefault();
