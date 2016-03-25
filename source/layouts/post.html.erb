@@ -27,8 +27,8 @@
       <footer class="post-footer">
         <% if gravatar? %>
           <figure class="author-image">
-            <a href="<%= author_path %>" style="background-image: url(<%= gravatar %>)">
-              <span><%= blog_author.name %>'s Picture</span>
+            <a href="<%= author_path %>" style="background-image: url(<%= gravatar %>)" class="img">
+              <span class="hidden"><%= blog_author.name %>'s Picture</span>
             </a>
           </figure>
 
