@@ -1,5 +1,4 @@
 //= require jquery/dist/jquery
-//= require cornerSlider/jquery.cornerslider
 //= require slimscroll/jquery.slimscroll
 //= require fullpage.js/dist/jquery.fullpage
 //= require selection-sharer/dist/selection-sharer
