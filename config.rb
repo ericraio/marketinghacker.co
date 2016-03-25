@@ -7,7 +7,7 @@ Time.zone = "America/Los_Angeles"
 
 config[:casper] = {
   blog: {
-    url: 'http://hacker.marketing',
+    url: 'https://marketinghacker.co',
     name: 'Marketing Hacker',
     description: 'Bridging the gap with Marketers and Developers',
     date_format: '%d %B %Y',
@@ -16,11 +16,11 @@ config[:casper] = {
   },
   author: {
     name: 'Eric Raio',
-    bio: 'Former Sr. Software Engineer at Sony and Bandsintown.', # Optional
-    location: 'San Diego, CA', # Optional
-    website: nil, # Optional
-    gravatar_email: 'ericraio@gmail.com', # Optional
-    twitter: '@ericraio' # Optional
+    bio: 'Former Sr. Software Engineer at Sony and Bandsintown.',
+    location: 'San Diego, CA',
+    website: nil,
+    gravatar_email: 'ericraio@gmail.com',
+    twitter: '@ericraio'
   },
   navigation: {
     "Home" => "/",
@@ -86,25 +86,18 @@ end
 ###
 
 activate :blog do |blog|
-  # This will add a prefix to all links, template references and source paths
-  # blog.prefix = "blog"
-
   blog.permalink = "/{slug}.html"
-  # Matcher for blog source files
   blog.sources = "articles/{title}.html"
   blog.taglink = "tag/{tag}.html"
-  # blog.layout = "layout"
-  # blog.summary_separator = /(READMORE)/
+  blog.layout = "layout"
+  blog.summary_separator = /(Read more..)/
   blog.summary_length = 250
-  # blog.year_link = "{year}.html"
-  # blog.month_link = "{year}/{month}.html"
-  # blog.day_link = "{year}/{month}/{day}.html"
-  # blog.default_extension = ".markdown"
-
+  blog.year_link = "{year}.html"
+  blog.month_link = "{year}/{month}.html"
+  blog.day_link = "{year}/{month}/{day}.html"
   blog.tag_template = "tag.html"
-  #blog.calendar_template = "calendar.html"
+  ##blog.calendar_template = "calendar.html"
 
-  # Enable pagination
   blog.paginate = true
   blog.per_page = 10
   blog.page_link = "page/{num}"
@@ -120,26 +113,12 @@ set :markdown, fenced_code_blocks: true, smartypants: true, footnotes: true,
   link_attributes: { rel: 'nofollow' }, tables: true
 activate :syntax, line_numbers: false
 
-# Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
-
-# Build-specific configuration
 configure :build do
-  # Minify CSS on build
   activate :minify_css
-
-  # Minify Javascript on build
   activate :minify_javascript
-
-  # Enable cache buster
   activate :asset_hash do |asset_hash|
     asset_hash.exts << '.json'
   end
-
 
   # Use relative URLs
   activate :relative_assets

@@ -1,0 +1,90 @@
+<% wrap_layout :layout do %>
+  <header class="main-header post-head <%= 'no-cover' unless current_page.data.cover.present? %>" style="<%= "background-image: url(#{image_path(page.data.cover)})" if current_page.data.cover.present? %>">
+    <nav class="main-nav clearfix <%= cover? ? 'overlay' : nil %>">
+      <% if blog_settings.logo.present? %>
+        <%= link_to(image_tag(blog_settings.logo, alt: blog_settings.name), home_path, class: 'blog-logo') %>
+      <% end %>
+
+      <% if blog_settings.navigation %>
+        <%= link_to "Menu", "javascript:void(0);", class: "menu-button icon-menu" %>
+      <% end %>
+    </nav>
+  </header>
+
+  <main role="main" class="content">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title"><%= current_article.title %></h1>
+        <section class="post-meta">
+          <%= tags if tags? %>
+        </section>
+      </header>
+
+      <section class="post-content">
+        <%= yield %>
+      </section>
+
+      <footer class="post-footer">
+        <% if gravatar? %>
+          <figure class="author-image">
+            <a href="<%= author_path %>" style="background-image: url(<%= gravatar %>)">
+              <span><%= blog_author.name %>'s Picture</span>
+            </a>
+          </figure>
+
+          <section class="author">
+            <h4>
+              <%= link_to blog_author.name, author_path %>
+            </h4>
+
+            <p>
+              <% if blog_author.bio.present? %>
+                <%= blog_author.bio %>
+              <% else %>
+                Read <%= link_to "more posts", author_path %> by this author.
+              <% end %>
+
+              <% if blog_author.location.present? || blog_author.website.present? %>
+                <% if blog_author.location.present? %>
+                  <span class="author-location icon-location"><%= blog_author.location %></span>
+                <% end %>
+
+                <% if blog_author.website.present? %>
+                  <span class="author-link icon-link"><%= link_to blog_author.website, blog_author.website%></span>
+                <% end %>
+              <% end %>
+            </p>
+          </section>
+
+          <section class="share">
+            <h4>Share this post</h4>
+            <a href="<%= twitter_url %>" class="icon-twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><span class="hidden">Twitter</span></a>
+            <a href="<%= facebook_url %>" class="icon-facebook" onclick="window.open(this.href, 'facebook-share', 'width=580,height=296');return false;"><span class="hidden">Facebook</span></a>
+            <a href="<%= google_plus_url %>" class="icon-google-plus" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><span class="hidden">Google+</span></a>
+          </section>
+
+        <% end %>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="read-next">
+    <% if prev_article = current_article.previous_article %>
+      <a href="<%= prev_article.url %>" class="read-next-story">
+        <section class="post">
+          <h2><%= prev_article.title %></h2>
+          <p><%= read_next_summary(prev_article, 19) %>&hellip;</p>
+        </section>
+      </a>
+    <% end %>
+
+    <% if next_article = current_article.next_article %>
+      <a href="<%= next_article.url %>" class="read-next-story">
+        <section class="post">
+          <h2><%= next_article.title %></h2>
+          <p><%= read_next_summary(next_article, 19) %>&hellip;</p>
+        </section>
+      </a>
+    <% end %>
+  </aside>
+<% end %>
