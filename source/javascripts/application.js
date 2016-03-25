@@ -108,7 +108,6 @@ jQuery(function($) {
     },
     ajaxSuccess: function() {
       Cookies.set('welcomeMat', true, { expires: 30 });
-      _gaq.push(['_trackEvent', 'Newsletter', 'Signup', 'Welcome Mat', 1]);
       $.fn.fullpage.moveSectionDown();
     },
     ajaxError: function(textStatus) {
