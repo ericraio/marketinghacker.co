@@ -138,6 +138,15 @@ window.MH = {
     });
   },
 
+  initFacebookComments: function() {
+    var facebookComments = $('#facebook-comments');
+    if (facebookComments.length) {
+      var url = window.location.href;
+      var htmlString = '<div class="fb-comments" data-href="' + url + '" data-numposts="5" data-width="100%"></div>';
+      facebookComments.html(htmlString);
+    }
+  },
+
   init: function() {
     if(!Cookies.get('email')) {
       $('.welcome-mat').css({ display: 'table' });
@@ -173,6 +182,7 @@ window.MH = {
     this.getSearchResults();
     this.welcomeMatFormSetup();
     this.scrollPopupFormSetup();
+    this.initFacebookComments();
 
     $('.post-content').selectionSharer();
   }
