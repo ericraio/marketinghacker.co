@@ -139,7 +139,7 @@ jQuery(function($) {
         data: form.serialize(),
         success: function() {
           var arr = form.serializeArray();
-          var field = arr.find(function(f) { return f.name === 'emailAddress' })
+          var field = arr.find(function(f) { return f.name === 'emailAddress'; });
           if (field) { Cookies.set('email', field.value); }
           emailOctopus.ajaxSuccess();
         },
