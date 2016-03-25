@@ -1,5 +1,5 @@
 <% wrap_layout :layout do %>
-  <header class="main-header post-head <%= 'no-cover' unless current_page.data.cover.present? %>" style="<%= "background-image: url(#{image_path(page.data.cover)})" if current_page.data.cover.present? %>">
+  <header class="main-header post-head <%= 'no-cover' unless current_page.data.cover.present? %>" style="<%= "background-image: url(#{image_path(current_page.data.cover)})" if current_page.data.cover.present? %>">
     <nav class="main-nav clearfix <%= cover? ? 'overlay' : nil %>">
       <% if blog_settings.logo.present? %>
         <%= link_to(image_tag(blog_settings.logo, alt: blog_settings.name), home_path, class: 'blog-logo') %>
