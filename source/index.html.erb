@@ -24,40 +24,42 @@ per_page: 6
   </div>
 
   <div class="section">
-    <header class="main-header no-cover">
-      <nav class="main-nav overlay clearfix">
-        <% if blog_settings.logo.present?%>
-          <%= link_to(image_tag(blog_settings.logo, alt: blog_settings.name), home_path, class: 'blog-logo') %>
-        <% end %>
+    <div>
+      <header class="main-header no-cover">
+        <nav class="main-nav overlay clearfix">
+          <% if blog_settings.logo.present?%>
+            <%= link_to(image_tag(blog_settings.logo, alt: blog_settings.name), home_path, class: 'blog-logo') %>
+          <% end %>
 
-        <% if blog_settings.navigation %>
-          <a href="#" class="menu-button icon-menu"><span class="word">Menu</span></a>
-        <% end %>
+          <% if blog_settings.navigation %>
+            <a href="#" class="menu-button icon-menu"><span class="word">Menu</span></a>
+          <% end %>
 
-        <div class="nav-search">
-          <div class="selectize-control">
-            <div class="selectize-input">
-              <input type="text" autocomplete="off" tabindex="0" placeholder="Search" id="search-field">
+          <div class="nav-search">
+            <div class="selectize-control">
+              <div class="selectize-input">
+                <input type="text" autocomplete="off" tabindex="0" placeholder="Search" id="search-field">
+              </div>
+            </div>
+            <button class="nav-search-button"><i class="icon-search"></i></button>
+            <div class="search-results">
             </div>
           </div>
-          <button class="nav-search-button"><i class="icon-search"></i></button>
-          <div class="search-results">
+
+        </nav>
+
+        <div class="vertical">
+          <div class="main-header-content inner">
+            <h1 class="page-title"><%= blog_settings.name %></h1>
+            <h2 class="page-description"><%= blog_settings.description %></h2>
           </div>
         </div>
+      </header>
 
-      </nav>
-
-      <div class="vertical">
-        <div class="main-header-content inner">
-          <h1 class="page-title"><%= blog_settings.name %></h1>
-          <h2 class="page-description"><%= blog_settings.description %></h2>
-        </div>
-      </div>
-    </header>
-
-    <main role="main" id="content" class="content">
-      <%= partial('shared/page_articles',
-                  locals: { page_articles: page_articles, paginate: paginate }) %>
-    </main>
+      <main role="main" id="content" class="content">
+        <%= partial('shared/page_articles',
+                    locals: { page_articles: page_articles, paginate: paginate }) %>
+      </main>
+    </div>
   </div>
 </div>
