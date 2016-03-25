@@ -129,22 +129,10 @@ activate :syntax, line_numbers: false
 
 # Build-specific configuration
 configure :build do
-  # Minify CSS on build
   activate :minify_css
-
-  # Minify Javascript on build
   activate :minify_javascript
-
-  # Enable cache buster
-  activate :asset_hash do |asset_hash|
-    asset_hash.exts << '.json'
-  end
-
-
-  # Use relative URLs
+  activate :asset_hash
   activate :relative_assets
-
-  # Ignoring Files
   ignore 'javascripts/_*'
   ignore 'javascripts/vendor/*'
   ignore 'stylesheets/_*'
