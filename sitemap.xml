@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://hacker.marketing/2013/10/26/welcome-to-ghost/index.html</loc>
-    <lastmod>2016-03-20T11:50:42-07:00</lastmod>
+    <loc>https://marketinghacker.co/what-this-blog-is-about-1/index.html</loc>
+    <lastmod>2016-03-25T08:48:16-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://hacker.marketing/author/eric-raio/index.html</loc>
-    <lastmod>2016-03-20T14:16:20-07:00</lastmod>
+    <loc>https://marketinghacker.co/what-this-blog-is-about-2/index.html</loc>
+    <lastmod>2016-03-25T08:48:16-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://hacker.marketing/index.html</loc>
-    <lastmod>2016-03-20T14:16:20-07:00</lastmod>
+    <loc>https://marketinghacker.co/what-this-blog-is-about/index.html</loc>
+    <lastmod>2016-03-25T08:48:16-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://hacker.marketing/tag/getting-started/index.html</loc>
-    <lastmod>2016-03-20T14:16:20-07:00</lastmod>
+    <loc>https://marketinghacker.co/author/eric-raio/index.html</loc>
+    <lastmod>2016-03-25T08:53:21-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://marketinghacker.co/index.html</loc>
+    <lastmod>2016-03-25T08:53:21-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://marketinghacker.co/tag/general/index.html</loc>
+    <lastmod>2016-03-25T08:53:21-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

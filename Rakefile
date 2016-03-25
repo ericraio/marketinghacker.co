@@ -4,7 +4,7 @@ task :deploy do
   system("git checkout scheduled")
   system("git pull origin scheduled")
   system("git checkout gh-pages")
-  system("git merge scheduled")
+  system("git merge -s scheduled")
   system("git push origin gh-pages")
   system("git checkout master")
 end
