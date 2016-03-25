@@ -1,0 +1,67 @@
+#spopup {
+  background: #E2EDF2;
+  border-radius:9px;
+  -moz-border-radius:9px;
+  -webkit-border-radius:9px;
+  -moz-box-shadow:inset 0 0 3px #333;
+  -webkit-box-shadow:inset 0 0 3px #333;
+  box-shadow:inner 0 0 3px #333;
+  padding:12px 14px 12px 14px;
+  width:300px;
+  position:fixed;
+  bottom:13px;
+  right:2px;
+  display:none;
+  z-index:90;
+
+  #spopup-message {
+    font-size: 15px;
+    margin: 5px 0;
+  }
+
+  #spopup-close {
+    float: right;
+    position: absolute;
+    right: 12px;
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .email-octopus-form-wrapper h2{
+    position: relative;
+    top: 25px;
+    font-size:20px;
+    margin:0 0 25px 0;
+  }
+  .email-octopus-form-row{
+    margin-bottom:15px;
+  }
+  .email-octopus-form-row label{
+    display:block;
+  }
+  .email-octopus-form-row input{
+    width:280px;
+    padding:8px;
+    height:32px;
+    border:1px solid #ccc;
+  }
+  .email-octopus-form-row-subscribe{
+    margin-top:20px;
+  }
+  .email-octopus-form-row-subscribe button{
+    background-color: #5890FF;
+    color: white;
+    border-radius: 3px;
+    padding:6px 12px;
+    border:0;
+    font-weight:bold;
+  }
+  .email-octopus-form-row-hp{
+    position:absolute;left:-5000px;
+  }
+
+  .email-octopus-error-message{
+    color:#e74c3c;
+  }
+  .email-octopus-referral{margin-top:20px;}
+}
