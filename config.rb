@@ -9,7 +9,7 @@ config[:casper] = {
   blog: {
     url: 'https://marketinghacker.co',
     name: 'Marketing Hacker',
-    description: 'Bridging the gap with Marketers and Developers',
+    description: 'Bridging the gap between Marketers and Developers',
     date_format: '%d %B %Y',
     navigation: true,
     logo: nil # Optional
