@@ -143,9 +143,3 @@ end
 after_configuration do
   sprockets.append_path "#{root}/source/bower_components"
 end
-
-activate :deploy do |deploy|
-  deploy.deploy_method = :git
-  deploy.build_before = true
-  deploy.branch = 'scheduled'
-end

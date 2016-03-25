@@ -13,7 +13,7 @@ gem 'middleman-livereload'
 gem 'middleman', '>= 4.0.0'
 gem 'middleman-blog', github: 'middleman/middleman-blog'
 gem 'middleman-sprockets', '~> 4.0.0.rc'
-gem 'middleman-deploy', '~> 2.0.0-alpha'
+#gem 'middleman-deploy', '~> 2.0.0-alpha'
 gem 'byebug'
 gem 'activesupport'
 
