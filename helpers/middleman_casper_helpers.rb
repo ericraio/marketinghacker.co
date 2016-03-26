@@ -2,6 +2,7 @@ require 'ostruct'
 require 'digest/md5'
 
 module MiddlemanCasperHelpers
+
   def page_title
     title = blog_settings.name.dup
     if is_tag_page?
@@ -30,6 +31,16 @@ module MiddlemanCasperHelpers
       'archive-template'
     else
       'home-template'
+    end
+  end
+
+  def page_url
+    current_page.url
+  end
+
+  def amp_meta_tag
+    if is_blog_article?
+      '<link rel="amphtml" href="https://hackermarketing.co/amp-' + current_article.slug + '">'
     end
   end
 

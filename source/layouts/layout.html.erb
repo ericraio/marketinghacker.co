@@ -20,6 +20,8 @@
     <meta property="og:description" content="<%= page_description %>" />
     <meta property="og:url" content="<%= URI.join(blog_settings.url, current_page.url) %>" />
 
+    <%= amp_meta_tag %>
+
     <% if cover? %>
       <meta property="og:image" content="<%= URI.join(blog_settings.url, image_path(current_page.data.cover)) %>" />
     <% end %>

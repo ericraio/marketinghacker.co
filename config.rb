@@ -1,5 +1,6 @@
 require 'byebug'
 require "lib/uuid"
+require "lib/amp_filter"
 require 'fileutils'
 
 Time.zone = "America/Los_Angeles"
@@ -151,13 +152,18 @@ end
 # Create an RFC4122 UUID http://www.ietf.org/rfc/rfc4122.txt
 set :uuid, UUID.create_sha1('marketinghacker.co', UUID::NameSpace_URL)
 
-after_build do
+after_build do |builder|
   sitemap.resources.each do |resource|
     if resource.is_a? Middleman::Blog::BlogArticle
       path = resource.destination_path.split('/')
       destination_path = File.join(config[:build_dir], 'amp-' + path[0])
       FileUtils.mkdir_p(destination_path)
-      File.open(destination_path + '/index.html', "w") { |file| file.write(resource.render(layout: :amp_layout)) }
+      amp_html = Proc.new { AmpFilter.amp_images(resource.body) }
+      ctx = Middleman::TemplateContext.new(builder.app)
+      ctx.current_engine = :html
+      layout_file = ::Middleman::TemplateRenderer.locate_layout(builder.app, :amp_layout, ctx.current_engine)
+      html = ctx.send(:render_file, layout_file, {}, {}, &amp_html)
+      File.open(destination_path + '/index.html', "w") { |file| file.write(html) }
     end
   end
 end
