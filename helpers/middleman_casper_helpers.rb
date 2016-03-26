@@ -35,7 +35,7 @@ module MiddlemanCasperHelpers
   end
 
   def page_url
-    current_page.url
+    URI.join(blog_settings.url, current_page.url)
   end
 
   def amp_meta_tag
