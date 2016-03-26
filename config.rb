@@ -1,7 +1,6 @@
-###
-# middleman-casper configuration
-###
-require 'active_support/all'
+require 'byebug'
+require "lib/uuid"
+require 'fileutils'
 
 Time.zone = "America/Los_Angeles"
 
@@ -147,4 +146,18 @@ end
 activate :deploy do |deploy|
   deploy.deploy_method = :git
   deploy.build_before = true
+end
+
+# Create an RFC4122 UUID http://www.ietf.org/rfc/rfc4122.txt
+set :uuid, UUID.create_sha1('marketinghacker.co', UUID::NameSpace_URL)
+
+after_build do
+  sitemap.resources.each do |resource|
+    if resource.is_a? Middleman::Blog::BlogArticle
+      path = resource.destination_path.split('/')
+      destination_path = File.join(config[:build_dir], 'amp-' + path[0])
+      FileUtils.mkdir_p(destination_path)
+      File.open(destination_path + '/index.html', "w") { |file| file.write(resource.render(layout: :amp_layout)) }
+    end
+  end
 end
