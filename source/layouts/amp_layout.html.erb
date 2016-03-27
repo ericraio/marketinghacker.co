@@ -64,6 +64,28 @@
         width: 127px;
       }
 
+      .author-image {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 40px;
+        height: 40px;
+        padding: 3px;
+        margin: 0 15px 0 0;
+        box-shadow: none;
+        float: left;
+      }
+
+      .author-image amp-img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        border-radius: 100%;
+      }
+
       body > article {
         margin: 0 auto;
         max-width: 750px;
@@ -726,12 +748,12 @@
       </main>
 
       <footer>
-        <figure class="author-image">
+        <div class="author-image">
           <amp-img src="<%= gravatar if gravatar? %>" alt="" title="" height="120" width="120" layout="responsive" />
-        </figure>
 
-        <div class="authors-name">
-          <span>By </span><span class="author" itemprop="author"><%= link_to blog_author.name, author_path %></span>
+          <div class="authors-name">
+            <span>By </span><span class="author" itemprop="author"><%= link_to blog_author.name, author_path %></span>
+          </div>
         </div>
 
         <div class="pane-node-field-issues">
