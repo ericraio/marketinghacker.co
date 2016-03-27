@@ -633,9 +633,7 @@
         if is_blog_article?
           json_ld[:datePublished] = current_article.date
           json_ld[:dateModified] = current_article.date
-          json_ld[:publisher] = json_ld_person.merge({
-            logo: json_ld_person[:image]
-          })
+          json_ld[:publisher] = json_ld_person
         end
 
         json_ld.to_json
