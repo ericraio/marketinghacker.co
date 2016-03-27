@@ -1,7 +1,6 @@
 require 'byebug'
 require "lib/uuid"
-require "lib/amp_filter"
-require 'fileutils'
+require "lib/amp_builder"
 
 Time.zone = "America/Los_Angeles"
 
@@ -153,19 +152,5 @@ end
 set :uuid, UUID.create_sha1('marketinghacker.co', UUID::NameSpace_URL)
 
 after_build do
-  Middleman::TemplateContext.send :include, MiddlemanCasperHelpers
-  resources = sitemap.resources.select { |r| r.is_a?(Middleman::Blog::BlogArticle) }
-  resources.each do |resource|
-    path = resource.destination_path.split('/')
-    destination_path = File.join(config[:build_dir], 'amp-' + path[0])
-    FileUtils.mkdir_p(destination_path)
-    amp_html = Proc.new { AmpFilter.amp_images(resource.body) }
-    ctx = Middleman::TemplateContext.new(app, {
-      current_path: resource.destination_path
-    })
-    ctx.current_engine = :erb
-    layout_file = ::Middleman::TemplateRenderer.locate_layout(app, :amp_layout, ctx.current_engine)
-    html = ctx.send(:render_file, layout_file, {}, {}, &amp_html)
-    File.open(destination_path + '/index.html', "w") { |file| file.write(html) }
-  end
+  AmpBuilder.build(app, sitemap, config)
 end
