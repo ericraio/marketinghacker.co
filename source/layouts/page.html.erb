@@ -1,0 +1,25 @@
+<%= wrap_layout :layout do %>
+  <header class="main-header post-head <%= 'no-cover' unless cover? %>" style="<%= "backgound-image: url(#{image_path(page.data.cover)});" if cover? %>">
+    <nav class="main-nav clearfix <%= 'overlay' if cover? %>">
+      <% if blog_settings.logo.present? %>
+        <%= link_to image_tag(blog_settings.logo, alt: blog_settings.name), home_path %>
+      <% end %>
+
+      <% if blog_settings.navigation %>
+        <a href="javascript:void(0);" class="icon-menu menu-button"><span class="word">Menu</span></a>
+      <% end %>
+    </nav>
+  </header>
+
+  <main role="main" class="content">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title"><%= current_page.data.title %></h1>
+      </header>
+
+      <section class="post-content">
+        <%= yield %>
+      </section>
+    </article>
+  </main>
+<% end %>

@@ -131,7 +131,7 @@ module MiddlemanCasperHelpers
 
   def jsonld_type
     if is_blog_article?
-      'Article'
+      'BlogPosting'
     else
       'WebPage'
     end
