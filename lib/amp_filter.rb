@@ -19,12 +19,8 @@ class AmpFilter
           src = image['src']
         else
           # FastImage doesn't seem to handle local paths when used with Jekyll
-          src = File.join('http://localhost:4000', image['src'])
+          src = File.join('http://localhost:4567', image['src'])
         end
-        # Jekyll generates static assets after the build process.
-        # This causes problems when trying to determine the dimensions of a locally stored image.
-        # For now, the only solution is to skip the build and generate the AMP files after the site has beem successfully built.
-        # TODO: find a better solution.
         begin
           size = FastImage.size(src)
           image['width']  = size[0]

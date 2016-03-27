@@ -633,7 +633,14 @@
         if is_blog_article?
           json_ld[:datePublished] = current_article.date
           json_ld[:dateModified] = current_article.date
-          json_ld[:publisher] = json_ld_person
+          json_ld[:publisher] = {
+            :@type => 'Organization',
+            :name => 'Marketing Hacker',
+            :logo => {
+              :@type => "ImageObject",
+              :url => "http://s.gravatar.com/avatar/69bdacd70dafc570b4d2cc1e670b1968?s=120"
+            }
+          }
         end
 
         json_ld.to_json
