@@ -1,50 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset='utf-8' />
     <title><%= page_title %></title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name='description' content="<%= page_description %>" />
-    <meta charset='utf-8' />
     <meta name="viewport", content='width=device-width, initial-scale=1.0' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='HandheldFriendly' content='True' />
-    <meta property="fb:app_id" content="1541848692775402" />
-    <meta property="og:site_name" content="<%= blog_settings.name %>" />
-    <meta property="og:type" content="<%= og_type %>" />
-    <% if og_title.present? %>
-      <meta property="og:title" content="<%= og_title %>" />
-    <% end %>
 
     <meta name="google-site-verification" content="B24DkSaAxvhRMtcchhUl5qltLyi8sUx1cOe5BbZHyos" />
     <meta name="msvalidate.01" content="98D4622E97D09CA5B95E3CBFA125AE12" />
-    <meta property="og:description" content="<%= page_description %>" />
-    <meta property="og:url" content="<%= URI.join(blog_settings.url, current_page.url) %>" />
 
     <%= amp_meta_tag %>
-
-    <% if cover? %>
-      <meta property="og:image" content="<%= URI.join(blog_settings.url, image_path(current_page.data.cover)) %>" />
-    <% end %>
 
     <% if is_blog_article? %>
       <meta property="article:published_time" content="<%= current_article.date.strftime('%Y-%m-%d') %>" />
     <% end %>
 
-    <meta name="twitter:card" content="summary" />
-    <% if blog_author.twitter.present? %>
-      <meta name="twitter:site" content="<%= blog_author.twitter %>" />
-    <% end %>
-
-    <% if twitter_title.present? %>
-      <meta name="twitter:title" content="<%= twitter_title %>" />
-    <% end %>
-
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="marketinghacker.co">
+    <meta name="twitter:creator" content="@ericraio">
+    <meta name="twitter:creator:id" content="18918314">
+    <meta name="twitter:site" content="@ericraio">
+    <meta name="twitter:site:id" content="18918314">
+    <meta name="twitter:account_id" content="18918314">
+    <meta name="twitter:title" content="<%= twitter_title || page_title %>" />
     <meta name="twitter:description" content="<%= page_description %>" />
-    <meta name="twitter:url" content="<%= URI.join(blog_settings.url, current_page.url) %>" />
+    <meta name="twitter:url" content="<%= page_url %>">
 
     <% if cover? %>
-    <meta name="twitter:image:src" content="<%= URI.join(blog_settings.url, image_path(current_page.data.cover)) %>" />
+      <meta name="twitter:image:src" content="<%= URI.join(blog_settings.url, image_path(current_page.data.cover)) %>" />
+      <meta property="og:image" content="<%= URI.join(blog_settings.url, image_path(current_page.data.cover)) %>" />
     <% end %>
+
+    <meta property="fb:app_id" content="1541848692775402" />
+    <meta property="og:site_name" content="<%= blog_settings.name %>" />
+    <meta property="og:type" content="<%= og_type %>" />
+    <meta property="og:url" content="<%= page_url %>" />
+    <meta property="og:title" content="<%= og_title || page_title %>" />
+    <meta property="og:description" content="<%= page_description %>" />
 
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
     <%= favicon_tag 'images/favicon.ico' %>
@@ -68,7 +63,37 @@
 
     <%= partial 'shared/results' %>
     <%= javascript_include_tag :application %>
-    <%#<script src="https://cdn.optimizely.com/js/5387331428.js"></script>%>
+    <script type="application/ld+json">
+      <%=
+        json_ld = {
+          :"@context" => "http://schema.org",
+          :"@type"=> jsonld_type,
+          :headline => og_title,
+          :author => {
+            :"@type" => "Person",
+            :name => "Eric Raio",
+            :image => {
+              :"@type" => "ImageObject",
+              :url => "http://s.gravatar.com/avatar/69bdacd70dafc570b4d2cc1e670b1968?s=120"
+            }
+          },
+          :description => page_description,
+          :mainEntityOfPage => {
+            :"@type" => "WebPage",
+            :"@id" => page_url
+          }
+        }
+
+        if cover?
+          json_ld[:image] = {
+            "@type": "ImageObject",
+            "url": URI.join(blog_settings.url, image_path(current_page.data.cover))
+          }
+        end
+
+        json_ld.to_json
+      %>
+    </script>
     <script>
       window.fbAsyncInit = function() {
         FB.init({

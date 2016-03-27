@@ -1,20 +1,763 @@
 <!doctype html>
-<html lang="en" ⚡>
+<html ⚡  lang="en">
+
   <head>
-    <title><%= page_title %></title>
     <meta charset="utf-8">
+    <title><%= page_title %></title>
     <link rel="canonical" href="<%= page_url %>" />
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name='description' content="<%= page_description %>" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="marketinghacker.co">
+    <meta name="twitter:creator" content="@ericraio">
+    <meta name="twitter:creator:id" content="18918314">
+    <meta name="twitter:site" content="@ericraio">
+    <meta name="twitter:site:id" content="18918314">
+    <meta name="twitter:account_id" content="18918314">
+    <meta name="twitter:title" content="<%= twitter_title || page_title %>" />
+    <meta name="twitter:description" content="<%= page_description %>">
+    <meta name="twitter:url" content="<%= page_url %>">
+    <% if cover? %>
+      <meta name="twitter:image:src" content="<%= URI.join(blog_settings.url, image_path(current_page.data.cover)) %>" />
+      <meta property="og:image" content="<%= URI.join(blog_settings.url, image_path(current_page.data.cover)) %>">
+    <% end %>
+
+    <meta property="og:site_name" content="Marketing Hacker">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="<%= page_url %>">
+    <meta property="og:title" content="<%= page_title %>">
+    <meta property="og:description" content="<%= page_description %>">
     <style amp-custom>
-      amp-img {
-        background-color: grey;
+      html {
+        font-size: 87.5%;
+        line-height: 1.71429em;
+        font-family: sans-serif;
+      }
+      body {
+        margin: 0;
+        color: #333333;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #59a7F4;
+      }
+      figure {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .site-header {
+        margin: 0 auto;
+        max-width: 750px;
+        padding: 14px 10px;
+      }
+
+      .site-header .site-logo {
+        display: inline-block;
+        overflow: hidden;
+        text-indent: -9999px;
+        height: 23px;
+        width: 127px;
+      }
+
+      body > article {
+        margin: 0 auto;
+        max-width: 750px;
+        padding: 0 10px;
+        font-size: 1.14286rem;
+      }
+
+      article header {
+        color: #666666;
+      }
+      article header h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 2em;
+        font-style: normal;
+        font-weight: bold;
+        letter-spacing: -0.84px;
+        line-height: 34px;
+      }
+      article header .field-publish-date {
+        color: #999999;
+        margin-bottom: 1.37143rem;
+        font-size: 0.71429rem;
+        line-height: 1.71429rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      article header .authors-names {
+        clear: both;
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+      }
+
+      .pane-node-field-issues {
+        color: #999999;
+        font-weight: bold;
+        font-size: 1.14286rem;
+        line-height: 1.71429rem;
+      }
+      .pane-node-field-issues .field-label {
+        float: left;
+        margin-right: 0.35714rem;
+      }
+      @font-face {
+        font-family: "social-icons";
+        font-style: normal;
+        font-weight: normal;
+        src: url(<%= blog_settings.url %>/fonts/social-icons.eot?#iefix) format("embedded-opentype"),
+             url(<%= blog_settings.url %>/fonts/social-icons.woff) format("woff"),
+             url(<%= blog_settings.url %>/fonts/social-icons.svg#social-icons) format("svg");
+      }
+      .clearfix:after,
+      .share-bar__list:after {
+        content: "";
+        display: table;
+        clear: both
+      }
+      .share-bar {
+        display: none;
+        display: inherit
+      }
+      .share-bar__item {
+        float: left;
+        display: block;
+        font-size: 1.125rem;
+        height: 1.875rem;
+        width: 1.875rem;
+        line-height: 1.875rem;
+        text-decoration: none;
+        text-align: center;
+        color: #ffffff;
+        overflow: hidden
+      }
+      .share-bar__item:before {
+        display: inline-block
+      }
+      .share-bar__item-link,
+      .share-bar--bottom .share-bar__show-more-link {
+        display: block;
+        font-size: 1.125rem;
+        height: 1.875rem;
+        width: 1.875rem;
+        line-height: 1.875rem;
+        text-decoration: none;
+        text-align: center;
+        color: #ffffff;
+        overflow: hidden
+      }
+      .share-bar__item-link:before,
+      .share-bar--bottom .share-bar__show-more-link:before {
+        display: inline-block
+      }
+      .share-bar__social-counts {
+        float: left;
+        width: 58px;
+        height: 45px;
+        border: 1px #e0e0e0 solid;
+        font-family: "Helvetica Neue", "Helvetica", Roboto, Arial, sans-serif;
+        font-size: 1.25em;
+        text-align: center;
+        margin-right: 1px
+      }
+      .share-bar__social-counts__number {
+        line-height: 2.25em
+      }
+      .share-bar .facebook .share-bar__item-link,
+      .share-bar .facebook .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .facebook .share-bar__show-more-link {
+        background-color: #3b5999;
+        cursor: pointer
+      }
+      .share-bar .facebook .share-bar__item-link:before,
+      .share-bar .facebook .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .facebook .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .facebook .share-bar__item-link:hover,
+      .share-bar .facebook .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .facebook .share-bar__show-more-link:hover {
+        background-color: #2e4983
+      }
+      .share-bar .facebook-messenger .share-bar__item-link,
+      .share-bar .facebook-messenger .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .facebook-messenger .share-bar__show-more-link {
+        background-color: #3b5999;
+        cursor: pointer
+      }
+      .share-bar .facebook-messenger .share-bar__item-link:before,
+      .share-bar .facebook-messenger .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .facebook-messenger .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .facebook-messenger .share-bar__item-link:hover,
+      .share-bar .facebook-messenger .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .facebook-messenger .share-bar__show-more-link:hover {
+        background-color: #3b5999
+      }
+      .share-bar .twitter .share-bar__item-link,
+      .share-bar .twitter .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .twitter .share-bar__show-more-link {
+        background-color: #55acef;
+        cursor: pointer
+      }
+      .share-bar .twitter .share-bar__item-link:before,
+      .share-bar .twitter .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .twitter .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .twitter .share-bar__item-link:hover,
+      .share-bar .twitter .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .twitter .share-bar__show-more-link:hover {
+        background-color: #2daae2
+      }
+      .share-bar .email .share-bar__item-link,
+      .share-bar .email .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .email .share-bar__show-more-link {
+        background-color: #727272;
+        cursor: pointer;
+        font-size: 1.25rem
+      }
+      .share-bar .email .share-bar__item-link:before,
+      .share-bar .email .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .email .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .email .share-bar__item-link:hover,
+      .share-bar .email .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .email .share-bar__show-more-link:hover {
+        background-color: #505050
+      }
+      .share-bar .sms .share-bar__item-link,
+      .share-bar .sms .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .sms .share-bar__show-more-link {
+        background-color: #999999;
+        cursor: pointer
+      }
+      .share-bar .sms .share-bar__item-link:before,
+      .share-bar .sms .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .sms .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .sms .share-bar__item-link:hover,
+      .share-bar .sms .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .sms .share-bar__show-more-link:hover {
+        background-color: #8e8e8e
+      }
+      .share-bar .google .share-bar__item-link,
+      .share-bar .google .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .google .share-bar__show-more-link {
+        background-color: #dd4b34;
+        cursor: pointer
+      }
+      .share-bar .google .share-bar__item-link:before,
+      .share-bar .google .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .google .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .google .share-bar__item-link:hover,
+      .share-bar .google .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .google .share-bar__show-more-link:hover {
+        background-color: #d24731
+      }
+      .share-bar .whatsapp .share-bar__item-link,
+      .share-bar .whatsapp .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .whatsapp .share-bar__show-more-link {
+        background-color: #61be4f;
+        cursor: pointer
+      }
+      .share-bar .line .share-bar__item-link,
+      .share-bar .line .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .line .share-bar__show-more-link {
+        background-color: #00c301;
+        cursor: pointer
+      }
+      .share-bar .line .share-bar__item-link:before,
+      .share-bar .line .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .line .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .line .share-bar__item-link:hover,
+      .share-bar .line .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .line .share-bar__show-more-link:hover {
+        background-color: #01af02
+      }
+      .share-bar .pinterest .share-bar__item-link,
+      .share-bar .pinterest .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .pinterest .share-bar__show-more-link {
+        background-color: #cb2028;
+        cursor: pointer
+      }
+      .share-bar .pinterest .share-bar__item-link:before,
+      .share-bar .pinterest .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .pinterest .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .pinterest .share-bar__item-link:hover,
+      .share-bar .pinterest .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .pinterest .share-bar__show-more-link:hover {
+        background-color: #a61b20
+      }
+      .share-bar .tumblr .share-bar__item-link,
+      .share-bar .tumblr .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .tumblr .share-bar__show-more-link {
+        background-color: #395877;
+        cursor: pointer
+      }
+      .share-bar .tumblr .share-bar__item-link:before,
+      .share-bar .tumblr .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .tumblr .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .tumblr .share-bar__item-link:hover,
+      .share-bar .tumblr .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .tumblr .share-bar__show-more-link:hover {
+        background-color: #314c68
+      }
+      .share-bar .stumbleupon .share-bar__item-link,
+      .share-bar .stumbleupon .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .stumbleupon .share-bar__show-more-link {
+        background-color: #ea4b24;
+        cursor: pointer
+      }
+      .share-bar .stumbleupon .share-bar__item-link:before,
+      .share-bar .stumbleupon .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .stumbleupon .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .linkedin .share-bar__item-link,
+      .share-bar .linkedin .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .linkedin .share-bar__show-more-link {
+        background-color: #0078bb;
+        cursor: pointer
+      }
+      .share-bar .linkedin .share-bar__item-link:before,
+      .share-bar .linkedin .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .linkedin .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .linkedin .share-bar__item-link:hover,
+      .share-bar .linkedin .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .linkedin .share-bar__show-more-link:hover {
+        background-color: #016daa
+      }
+      .share-bar .comments .share-bar__item-link,
+      .share-bar .comments .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .comments .share-bar__show-more-link {
+        background-color: #2c9178;
+        cursor: pointer;
+        font-size: 1.25rem
+      }
+      .share-bar .comments .share-bar__item-link:before,
+      .share-bar .comments .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .comments .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .comments .share-bar__item-link:hover,
+      .share-bar .comments .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .comments .share-bar__show-more-link:hover {
+        background-color: #26856d
+      }
+      .share-bar .youtube .share-bar__item-link,
+      .share-bar .youtube .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .youtube .share-bar__show-more-link {
+        background-color: #e52d27;
+        cursor: pointer
+      }
+      .share-bar .youtube .share-bar__item-link:before,
+      .share-bar .youtube .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .youtube .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .phone .share-bar__item-link,
+      .share-bar .phone .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .phone .share-bar__show-more-link {
+        background-color: #38c15b;
+        cursor: pointer
+      }
+      .share-bar .phone .share-bar__item-link:before,
+      .share-bar .phone .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .phone .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .sms-bubble .share-bar__item-link,
+      .share-bar .sms-bubble .share-bar--bottom .share-bar__show-more-link,
+      .share-bar--bottom .share-bar .sms-bubble .share-bar__show-more-link {
+        background-color: #999999;
+        cursor: pointer
+      }
+      .share-bar .sms-bubble .share-bar__item-link:before,
+      .share-bar .sms-bubble .share-bar--bottom .share-bar__show-more-link:before,
+      .share-bar--bottom .share-bar .sms-bubble .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased
+      }
+      .share-bar .sms-bubble .share-bar__item-link:hover,
+      .share-bar .sms-bubble .share-bar--bottom .share-bar__show-more-link:hover,
+      .share-bar--bottom .share-bar .sms-bubble .share-bar__show-more-link:hover {
+        background-color: #999999
+      }
+      .share-bar {
+        display: inline-block;
+        overflow: hidden
+      }
+      .share-bar__list {
+        padding: 0;
+        list-style: none
+      }
+      .share-bar__item {
+        display: block
+      }
+      .share-bar__item-link,
+      .share-bar--bottom .share-bar__show-more-link {
+        display: block;
+        font-size: 1.125rem;
+        height: 1.875rem;
+        width: 1.875rem;
+        line-height: 1.875rem;
+        text-decoration: none;
+        text-align: center;
+        color: #ffffff;
+        border-radius: 4px
+      }
+      .share-bar__item-link:before,
+      .share-bar--bottom .share-bar__show-more-link:before {
+        display: inline-block
+      }
+      .share-bar--bottom {
+        position: fixed;
+        bottom: 0;
+        height: 58px;
+        border: none;
+        background: #ffffff;
+        z-index: 4999991;
+        -webkit-transform: translateZ(0) translate3d(0, 0, 0);
+        transform: translateZ(0) translate3d(0, 0, 0);
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-align: start;
+        -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        width: 100%;
+        box-shadow: 0px -3px 3px 0px rgba(0, 0, 0, 0.12)
+      }
+      .share-bar--bottom.share-bar--open .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        font-size: inherit;
+        color: #999999
+      }
+      .share-bar--bottom .share-bar__list {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        overflow: hidden;
+        text-align: left;
+        padding-bottom: 4px;
+        font-size: 0
+      }
+      .share-bar--bottom .share-bar__item {
+        display: inline-block;
+        padding-left: 4px;
+        padding-top: 4px;
+        width: 20%;
+        max-width: 71px;
+        height: 60px;
+        line-height: 50px
+      }
+      .share-bar--bottom .share-bar__item-link,
+      .share-bar--bottom .share-bar__show-more-link {
+        font-size: 22px;
+        height: 50px;
+        line-height: 50px;
+        width: 100%
+      }
+      .share-bar--bottom .share-bar__show-more {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        -webkit-align-self: flex-end;
+        -ms-flex-item-align: end;
+        align-self: flex-end;
+        width: 55px;
+        padding-bottom: 4px;
+        font-size: 18px
+      }
+      .share-bar--bottom .share-bar__show-more-link {
+        color: #757575;
+        margin-top: 4px;
+        margin-right: 4px;
+        font-size: inherit
+      }
+      .share-bar--bottom .share-bar__show-more-link:before {
+        content: "";
+        font-family: "social-icons";
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        text-transform: none;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        font-size: inherit;
+        color: #999999
+      }
+      .slideshow .share-bar--bottom {
+        z-index: 5000021
+      }
+      .instagram-media {
+        margin: 0 auto;
+        width: 1px;
+        min-width: 100%
+      }
+      body {
+        padding-bottom: 70px
       }
     </style>
+    <script type="application/ld+json">
+      <%=
+        json_ld = {
+          :"@context" => "http://schema.org",
+          :"@type"=> jsonld_type,
+          :headline => og_title,
+          :author => {
+            :"@type" => "Person",
+            :name => "Eric Raio",
+            :image => {
+              :"@type" => "ImageObject",
+              :url => "http://s.gravatar.com/avatar/69bdacd70dafc570b4d2cc1e670b1968?s=120"
+            }
+          },
+          :description => page_description,
+          :mainEntityOfPage => {
+            :"@type" => "WebPage",
+            :"@id" => page_url
+          }
+        }
+
+        if cover?
+          json_ld[:image] = {
+            "@type": "ImageObject",
+            "url": URI.join(blog_settings.url, image_path(current_page.data.cover))
+          }
+        end
+
+        json_ld.to_json
+      %>
+    </script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js" custom-element="amp-analytics"></script>
+    <script async src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js" custom-element="amp-twitter"></script>
+
   </head>
 
   <body>
-    <%= yield %>
+    <header class="site-header">
+      <a class="site-logo" href="/">
+        <span>Marketing Hacker</span>
+      </a>
+    </header>
+
+    <article>
+      <header>
+        <% if cover? %>
+          <span class="image-wrapper">
+            <amp-img src="<%= URI.join(blog_settings.url, image_path(current_page.data.cover)) %>" alt="" title="" layout="responsive" />
+          </span>
+        <% end %>
+
+        <h1><%= current_article.title %></h1>
+      </header>
+
+      <main class="content-wrapper" role="main">
+        <div class="share-bar share-bar--bottom bN" i-amp-fixedid="F0">
+          <ul class="share-bar__list share-list-js">
+            <li class="facebook share-bar__item">
+            <a class="share-bar__item-link" href="http://facebook.com/share.php?u=<%= page_url %>" target="_blank"></a>
+            </li>
+            <li class="share-bar__item twitter">
+              <a class="share-bar__item-link" href="https://twitter.com/share?text=<%= truncate(page_title, length: 100) %>&amp;url=<%= page_url %>&amp;via=ericraio&amp;" target="_blank"></a>
+            </li>
+            <li class="email share-bar__item">
+              <a class="share-bar__item-link" href="mailto:?subject=<%= page_title %>&amp;body=<%= page_url %>" target="_blank"></a>
+            </li>
+            <li class="share-bar__item linkedin">
+            <a class="share-bar__item-link" href="https://www.linkedin.com/shareArticle?mini=true&url=<%= page_url %>&amp;title=<%= page_title %>&amp;summary=<%= page_description %>" target="_blank"></a>
+            </li>
+            <li class="google share-bar__item">
+            <a class="share-bar__item-link" href="http://plus.google.com/share?url=<%= page_title %>" target="_blank"></a>
+            </li>
+          </ul>
+        </div>
+
+        <%= yield %>
+      </main>
+
+      <footer>
+        <figure class="author-image">
+          <amp-img src="<%= gravatar %>" alt="" title="" layout="responsive" />
+        </figure>
+
+        <div class="authors-name">
+          <span>By </span><span class="author" itemprop="author"><%= link_to blog_author.name, author_path %></span>
+        </div>
+
+        <div class="pane-node-field-issues">
+          <div class="issues-topics">
+            <%= tags if tags? %>
+          </div>
+        </div>
+      </footer>
+    </article>
+
+
+    <amp-analytics type="googleanalytics" id="analytics1">
+      <script type="application/json">
+      {
+        "vars": {
+          "account": "UA-75599000-1"
+        },
+        "triggers": {
+          "trackPageview": {
+            "on": "visible",
+            "request": "pageview"
+          }
+        }
+      }
+      </script>
+    </amp-analytics>
   </body>
 </html>
+

@@ -129,6 +129,14 @@ module MiddlemanCasperHelpers
     "#{blog.options.prefix.to_s}/author/#{blog_author.name.parameterize}/"
   end
 
+  def jsonld_type
+    if is_blog_article?
+      'Article'
+    else
+      'WebPage'
+    end
+  end
+
   def og_type
     if is_blog_article?
       'article'
