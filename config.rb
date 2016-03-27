@@ -130,7 +130,7 @@ activate :syntax, line_numbers: false
 configure :build do
   activate :minify_css
   activate :minify_javascript
-  activate :asset_hash
+  activate :asset_hash, ignore: [/social-icons/]
   activate :relative_assets
   ignore 'javascripts/_*'
   ignore 'javascripts/vendor/*'

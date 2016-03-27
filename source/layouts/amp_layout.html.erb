@@ -114,9 +114,9 @@
         font-family: "social-icons";
         font-style: normal;
         font-weight: normal;
-        src: url(<%= blog_settings.url %>/fonts/social-icons.eot?#iefix) format("embedded-opentype"),
-             url(<%= blog_settings.url %>/fonts/social-icons.woff) format("woff"),
-             url(<%= blog_settings.url %>/fonts/social-icons.svg#social-icons) format("svg");
+        src: url(<%= asset_path('fonts/social-icons.eot') %>?#iefix) format("embedded-opentype"),
+             url(<%= asset_path('fonts/social-icons.woff') %>) format("woff"),
+             url(<%= asset_path('fonts/social-icons.svg') %>#social-icons) format("svg");
       }
       .clearfix:after,
       .share-bar__list:after {
@@ -694,7 +694,7 @@
       <header>
         <% if cover? %>
           <span class="image-wrapper">
-            <amp-img src="<%= URI.join(blog_settings.url, image_path(current_page.data.cover)) %>" alt="" title="" layout="responsive" />
+            <amp-img src="<%= URI.join(blog_settings.url, image_path(current_page.data.cover)) %>" alt="" title="" height="512" width="1024" layout="responsive" />
           </span>
         <% end %>
 
@@ -727,7 +727,7 @@
 
       <footer>
         <figure class="author-image">
-          <amp-img src="<%= gravatar %>" alt="" title="" layout="responsive" />
+          <amp-img src="<%= gravatar if gravatar? %>" alt="" title="" height="120" width="120" layout="responsive" />
         </figure>
 
         <div class="authors-name">
