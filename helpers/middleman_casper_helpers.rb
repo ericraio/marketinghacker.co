@@ -157,4 +157,15 @@ module MiddlemanCasperHelpers
     end
   end
   alias :twitter_title :og_title
+
+  def json_ld_person
+    {
+      :"@type" => "Person",
+      :name => "Eric Raio",
+      :image => {
+        :"@type" => "ImageObject",
+        :url => "http://s.gravatar.com/avatar/69bdacd70dafc570b4d2cc1e670b1968?s=120"
+      }
+    }
+  end
 end

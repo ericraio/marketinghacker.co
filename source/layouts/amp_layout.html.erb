@@ -473,65 +473,6 @@
       .share-bar--bottom .share-bar .comments .share-bar__show-more-link:hover {
         background-color: #26856d
       }
-      .share-bar .youtube .share-bar__item-link,
-      .share-bar .youtube .share-bar--bottom .share-bar__show-more-link,
-      .share-bar--bottom .share-bar .youtube .share-bar__show-more-link {
-        background-color: #e52d27;
-        cursor: pointer
-      }
-      .share-bar .youtube .share-bar__item-link:before,
-      .share-bar .youtube .share-bar--bottom .share-bar__show-more-link:before,
-      .share-bar--bottom .share-bar .youtube .share-bar__show-more-link:before {
-        content: "";
-        font-family: "social-icons";
-        font-style: normal;
-        text-rendering: optimizeLegibility;
-        text-transform: none;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
-        font-smoothing: antialiased
-      }
-      .share-bar .phone .share-bar__item-link,
-      .share-bar .phone .share-bar--bottom .share-bar__show-more-link,
-      .share-bar--bottom .share-bar .phone .share-bar__show-more-link {
-        background-color: #38c15b;
-        cursor: pointer
-      }
-      .share-bar .phone .share-bar__item-link:before,
-      .share-bar .phone .share-bar--bottom .share-bar__show-more-link:before,
-      .share-bar--bottom .share-bar .phone .share-bar__show-more-link:before {
-        content: "";
-        font-family: "social-icons";
-        font-style: normal;
-        text-rendering: optimizeLegibility;
-        text-transform: none;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
-        font-smoothing: antialiased
-      }
-      .share-bar .sms-bubble .share-bar__item-link,
-      .share-bar .sms-bubble .share-bar--bottom .share-bar__show-more-link,
-      .share-bar--bottom .share-bar .sms-bubble .share-bar__show-more-link {
-        background-color: #999999;
-        cursor: pointer
-      }
-      .share-bar .sms-bubble .share-bar__item-link:before,
-      .share-bar .sms-bubble .share-bar--bottom .share-bar__show-more-link:before,
-      .share-bar--bottom .share-bar .sms-bubble .share-bar__show-more-link:before {
-        content: "";
-        font-family: "social-icons";
-        font-style: normal;
-        text-rendering: optimizeLegibility;
-        text-transform: none;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
-        font-smoothing: antialiased
-      }
-      .share-bar .sms-bubble .share-bar__item-link:hover,
-      .share-bar .sms-bubble .share-bar--bottom .share-bar__show-more-link:hover,
-      .share-bar--bottom .share-bar .sms-bubble .share-bar__show-more-link:hover {
-        background-color: #999999
-      }
       .share-bar {
         display: inline-block;
         overflow: hidden
@@ -672,14 +613,7 @@
           :"@context" => "http://schema.org",
           :"@type"=> jsonld_type,
           :headline => og_title,
-          :author => {
-            :"@type" => "Person",
-            :name => "Eric Raio",
-            :image => {
-              :"@type" => "ImageObject",
-              :url => "http://s.gravatar.com/avatar/69bdacd70dafc570b4d2cc1e670b1968?s=120"
-            }
-          },
+          :author => json_ld_person,
           :description => page_description,
           :mainEntityOfPage => {
             :"@type" => "WebPage",
@@ -689,9 +623,17 @@
 
         if cover?
           json_ld[:image] = {
-            "@type": "ImageObject",
-            "url": URI.join(blog_settings.url, image_path(current_page.data.cover))
+            :@type => "ImageObject",
+            :url => URI.join(blog_settings.url, image_path(current_page.data.cover)),
+            :height => 512,
+            :width => 1024
           }
+        end
+
+        if is_blog_article?
+          json_ld[:datePublished] = current_article.date
+          json_ld[:dateModified] = current_article.date
+          json_ld[:publisher] = json_ld_person
         end
 
         json_ld.to_json

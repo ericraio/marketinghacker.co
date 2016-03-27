@@ -69,14 +69,7 @@
           :"@context" => "http://schema.org",
           :"@type"=> jsonld_type,
           :headline => og_title,
-          :author => {
-            :"@type" => "Person",
-            :name => "Eric Raio",
-            :image => {
-              :"@type" => "ImageObject",
-              :url => "http://s.gravatar.com/avatar/69bdacd70dafc570b4d2cc1e670b1968?s=120"
-            }
-          },
+          :author => json_ld_person,
           :description => page_description,
           :mainEntityOfPage => {
             :"@type" => "WebPage",
@@ -89,6 +82,12 @@
             "@type": "ImageObject",
             "url": URI.join(blog_settings.url, image_path(current_page.data.cover))
           }
+        end
+
+        if is_blog_article?
+          json_ld[:datePublished] = current_article.date
+          json_ld[:dateModified] = current_article.date
+          json_ld[:publisher] = json_ld_person
         end
 
         json_ld.to_json
