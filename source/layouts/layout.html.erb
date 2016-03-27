@@ -80,7 +80,9 @@
         if cover?
           json_ld[:image] = {
             "@type": "ImageObject",
-            "url": URI.join(blog_settings.url, image_path(current_page.data.cover))
+            "url": URI.join(blog_settings.url, image_path(current_page.data.cover)),
+            :height => 512,
+            :width => 1024
           }
         end
 
