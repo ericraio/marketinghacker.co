@@ -1,8 +1,6 @@
 general:
   branches:
-    ignore:
-      - gh-pages
-      - master
+    only:
 
 dependencies:
   pre:
