@@ -86,4 +86,4 @@ In theory, Google will start to favor reputable AMP pages in their
 search results vs a non-AMP page. AMP being open source will also prove
 to provide more value in the long run as new features will be built
 around these new pages. This is in competition with
-Facebook's Instant Articles which is proprietary at the moment.
+Facebook's Instant Articles and Apple News.

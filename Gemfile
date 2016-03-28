@@ -14,7 +14,6 @@ gem 'middleman', '>= 4.0.0'
 gem 'middleman-blog', github: 'middleman/middleman-blog'
 gem 'middleman-sprockets', '~> 4.0.0.rc'
 gem 'middleman-deploy', '~> 2.0.0.pre.alpha'
-gem 'byebug'
 gem 'activesupport'
 gem 'fastimage'
 
@@ -27,3 +26,7 @@ gem 'redcarpet', '~> 3.3.4'
 
 # For "summary"-Helper
 gem 'nokogiri', '~> 1.6.7.1'
+
+group :development do
+  gem 'byebug'
+end
