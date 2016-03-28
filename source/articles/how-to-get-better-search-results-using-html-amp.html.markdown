@@ -1,6 +1,6 @@
 ---
-slug: how-to-get-better-search-results-with-html-amp
-title: How to Get Better Search Results with HTML AMP
+slug: how-to-get-better-search-results-using-html-amp
+title: How to Get Better Search Results Using HTML AMP
 date: 2016-03-26 22:21 PDT
 tags: [SEO, HTML]
 published: false
