@@ -28,3 +28,5 @@ gem 'redcarpet', '~> 3.3.4'
 
 # For "summary"-Helper
 gem 'nokogiri', '~> 1.6.7.1'
+
+gem 'byebug', :groups => [:development]
