@@ -1,4 +1,13 @@
 dependencies:
+  pre:
+    - bundle install
   bundler:
     without:
       - development
+
+deployment:
+  production:
+    branch: master
+    commands:
+      # Middleman build
+      - bundle exec middleman build --verbose
