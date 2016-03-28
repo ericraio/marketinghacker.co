@@ -1,6 +1,7 @@
 general:
   branches:
     only:
+      - nothing
 
 dependencies:
   pre:
