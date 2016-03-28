@@ -7,10 +7,11 @@ cover: quotes/jeff-bezos-not-trying-quote.png
 layout: post
 ---
 
-You know the feeling when you create something totally awesome that you
-have spent countless days and nights working on. You tell your friends and family about it and they love it.
-You then release it on the internet just sitting and waiting for customers. So now
-what?
+You know the feeling when you create something totally awesome and you
+have spent countless days and nights working on it. You tell your friends and family about your new creative and they love it.
+You release it on the internet and sit and waiting for customers.
+
+-- So now what?
 
 Just as important as building the product, it's just as important to
 grow the product. The 2 subjects are 2 sides of the same coin to achieve
