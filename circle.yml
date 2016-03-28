@@ -10,6 +10,9 @@ dependencies:
   bundler:
     without:
       - development
+test:
+  override:
+    - ls
 
 deployment:
   production:
