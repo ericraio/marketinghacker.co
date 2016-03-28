@@ -40,7 +40,7 @@ module MiddlemanCasperHelpers
 
   def amp_meta_tag
     if is_blog_article?
-      '<link rel="amphtml" href="https://hackermarketing.co/amp-' + current_article.slug + '">'
+      '<link rel="amphtml" href="https://hackermarketing.co/amp-' + current_article.slug + '/">'
     end
   end
 
