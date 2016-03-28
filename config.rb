@@ -1,4 +1,3 @@
-require 'byebug'
 require "lib/uuid"
 require "lib/amp_builder"
 
