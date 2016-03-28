@@ -1,9 +1,8 @@
 ---
 slug: how-to-get-better-search-results-using-amp
 title: How to Get Better Search Results Using AMP
-date: 2016-03-26 22:21 PDT
+date: 2016-03-28 00:00 PDT
 tags: [SEO, AMP, Google]
-published: false
 layout: post
 cover: quotes/japanese-proverb-get-up-eight-times.png
 ---
