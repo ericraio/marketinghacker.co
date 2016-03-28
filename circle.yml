@@ -1,6 +1,7 @@
 dependencies:
   pre:
     - bundle install
+    - bower install
   bundler:
     without:
       - development
@@ -10,4 +11,4 @@ deployment:
     branch: master
     commands:
       # Middleman build
-      - bundle exec middleman build --verbose
+      - bundle exec middleman deploy --verbose
