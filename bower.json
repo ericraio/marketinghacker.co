@@ -4,10 +4,7 @@
     "Eric Raio <ericraio@gmail.com>"
   ],
   "description": "Marketing for Engineers",
-  "main": "",
-  "moduleType": [],
-  "license": "MIT",
-  "homepage": "",
+  "homepage": "https://marketinghacker.co",
   "private": true,
   "ignore": [
     "**/.*",
