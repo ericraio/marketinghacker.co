@@ -11,4 +11,6 @@ deployment:
     branch: master
     commands:
       # Middleman build
+      - git config --global user.email "ericraio@gmail.com"
+      - git config --global user.name "Circle CI"
       - bundle exec middleman deploy --verbose
