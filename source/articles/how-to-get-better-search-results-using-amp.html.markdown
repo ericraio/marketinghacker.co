@@ -7,8 +7,8 @@ layout: post
 cover: quotes/japanese-proverb-get-up-eight-times.png
 ---
 
-**How often do you experience slow internet?** *Do you want to throw
-your phone when you have poor cell service?*
+**How often do you experience slow internet?**
+*Do you want to throw your phone when you have poor cell service?*
 *Do you curse at your TV when your favorite video game starts to lag?*
 
 -- Let's face it. The slow web sucks.
@@ -16,7 +16,7 @@ your phone when you have poor cell service?*
 The Web has gotten to be bloated. We download so much crap
 every time we visit a new web page. Of course, we can hack around and
 engineers can try to get you to download more data just before you need
-it.
+it. We just are making things more difficult.
 
 ![Marketing for Developers](posts/software-laptop.png "Marketing for
 Developers")
