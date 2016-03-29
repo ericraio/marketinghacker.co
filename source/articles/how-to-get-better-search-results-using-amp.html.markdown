@@ -13,8 +13,8 @@ your phone when you have poor cell service?*
 
 -- Let's face it. The slow web sucks.
 
-The Web has gotten to be very bloated. We download so much crap
-every time we visit a new webpage. Of course, we can hack around and
+The Web has gotten to be bloated. We download so much crap
+every time we visit a new web page. Of course, we can hack around and
 engineers can try to get you to download more data just before you need
 it.
 
@@ -31,7 +31,7 @@ and it's a success when a user performs these three simple steps.
 - Click the link and never return
 
 They are looking to get you your results as fast as
-possible and send you to the most relevent page. Where as other
+possible and send you to the most relevant page. Where as other
 companies like Facebook are looking to keep you on the website as long
 as possible.
 
@@ -40,7 +40,7 @@ user experience through and through. So they favor pages that also
 perform well in their algorithms.
 
 When you are on the go, latency is critical for downloading all these
-assets and of course we simply don't have the same internet speeds as
+assets. Of course we do not have the same internet speeds as
 our desktops. Majority of the time on our phones, we are consuming
 content like a magazine. So what is Google going to do?
 
@@ -50,39 +50,37 @@ Developers")
 ## Speeding up the Mobile Web with AMP
 
 Google has open sourced <a href="https://www.ampproject.org/" target="_blank" rel="nofollow">Accelerated Mobile pages</a> (AMP)
-with partnerships from Twitter, Pinterest, Linkedin and others. For every web page you
+along with these companies. Twitter, Pinterest, Linkedin and others. For every web page you
 own, you create another version of your page using the AMP framework.
 
-AMP is a strict framework designed to make very fast web pages that is
+AMP is a strict framework designed to make fast web pages that is
 perfect for mobile web browsing. You can not even load your custom
-JavaScript, only pre-defined components. So it is designed for the end user to consume content
-quickly. You also can't use any forms either.
+JavaScript, only predefined components. So it is designed for the
+end user to consume content. You also can't use any forms either.
 
 ## Where is AMP used on the web?
 
-Since this was released in February 2016, you'll see the AMP pages in
+AMP was released in February 2016. You will see the AMP pages in
 action when you search on your phone any kind of news article. In the
-screenshot below, check out the cool looking AMP logo right under the
-articles. You can then swipe to quickly browse the articles in the
-search results.
+screen shot below, check out the cool looking AMP logo right under the
+articles. You can then swipe to browse the articles in the
+search results
 
-In order to provide data to google, you'll have to combine technology AMP with
+To provide data to google, you'll have to combine technology AMP with
 JSON+LD. (Which i'll go over in a future essay)
 
 ![AMP Google Search Results](posts/amp-google-search-results.png "AMP
 Google Search Results")
 
-When you open up an AMP page, you will notice that the page loads very
-quickly. It loads so quickly that you can swipe from page to page and
-they are loading instantly.
+When you open up an AMP page, you will notice that the page loads
+immediately. It performs so well that you can swipe from page to
+page and it feels like nothing is loading.
 
 ![AMP Google Swipe](posts/amp-google-swipe.png "AMP
 Google Swipe")
 
 ## So how will this grow my business?
 
-In theory, Google will start to favor reputable AMP pages in their
-search results vs a non-AMP page. AMP being open source will also prove
-to provide more value in the long run as new features will be built
-around these new pages. This is in competition with
-Facebook's Instant Articles and Apple News.
+I think in the future. Google will start to favor reputable AMP pages in their
+search results vs a non-AMP page. Companies are more likely to adopt AMP because
+it is open sourced. This is in competition with Facebook's Instant Articles and Apple News.
