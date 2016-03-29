@@ -119,7 +119,7 @@ activate :syntax, line_numbers: false
 configure :build do
   activate :minify_css
   activate :minify_javascript
-  activate :asset_hash, ignore: [/social-icons/, /images\/quotes/]
+  activate :asset_hash, ignore: [/social-icons/, /images\/quotes/, /images\/posts/]
   activate :relative_assets
   ignore 'javascripts/_*'
   ignore 'javascripts/vendor/*'
