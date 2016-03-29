@@ -210,11 +210,19 @@ var emailOctopus = {
     if (window._gaq) {
       window._gaq.push(['_trackEvent', 'Newsletter', 'Signup', 'Welcome Mat', 1]);
     }
+
+    if (window.mixpanel) {
+      window.mixpanel.track("Newsletter Signup");
+    }
     $.fn.fullpage.moveSectionDown();
   },
   scrollPopupSuccess: function() {
     if (window._gaq) {
       window._gaq.push(['_trackEvent', 'Newsletter', 'Signup', 'Scroll Popup', 1]);
+    }
+
+    if (window.mixpanel) {
+      window.mixpanel.track("Newsletter Signup");
     }
     window.popupClosed = true;
     $('#spopup').hide('slow');
