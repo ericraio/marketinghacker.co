@@ -41,7 +41,7 @@
     <meta property="og:title" content="<%= og_title || page_title %>" />
     <meta property="og:description" content="<%= page_description %>" />
 
-    <% if is_blog_article %>
+    <% if is_blog_article? %>
       <meta property="article:published_time" content="<%= current_article.date %>" />
       <meta property="article:modified_time" content="<%= current_article.date %>" />
       <meta property="article:section" content="<%= og_title %>" />
