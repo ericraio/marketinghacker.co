@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Marketing Hacker: SEO</title>
+  <subtitle>Posts tagged with SEO</subtitle>
+  <id>https://marketinghacker.co</id>
+  <link href="https://marketinghacker.co"/>
+  <link href="https://marketinghacker.co/tag/seo/feed.xml" rel="self"/>
+  <updated>2016-03-28T07:00:00+00:00</updated>
+  <author>
+    <name>Eric Raio</name>
+  </author>
+  <entry>
+    <title>How to Get Better Search Results Using AMP</title>
+    <link rel="alternate" href="https://marketinghacker.co/how-to-get-better-search-results-using-amp/"/>
+    <id>https://marketinghacker.co/how-to-get-better-search-results-using-amp/</id>
+    <published>2016-03-28T07:00:00+00:00</published>
+    <updated>2016-04-13T15:10:09+00:00</updated>
+    <author>
+      <name>Eric Raio</name>
+    </author>
+    <summary type="html">How often do you experience slow internet?
+Do you want to throw your phone when you have poor cell service?
+Do you curse at your TV when your favorite video game starts to lag?
+
+– Let’s face it. The slow web sucks.
+
+The Web has gotten to be bloated. We</summary>
+  </entry>
+</feed>

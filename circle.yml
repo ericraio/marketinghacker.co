@@ -1,0 +1,26 @@
+general:
+  branches:
+    ignore:
+      - gh-pages
+    only:
+      - nothing
+
+dependencies:
+  pre:
+    - bundle install
+    - bower install
+  bundler:
+    without:
+      - development
+test:
+  override:
+    - ls
+
+deployment:
+  production:
+    branch: master
+    commands:
+      # Middleman build
+      - git config --global user.email "ericraio@gmail.com"
+      - git config --global user.name "Circle CI"
+      - bundle exec middleman deploy --verbose

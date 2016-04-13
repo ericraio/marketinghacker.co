@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Marketing Hacker: General</title>
+  <subtitle>Posts tagged with General</subtitle>
+  <id>https://marketinghacker.co</id>
+  <link href="https://marketinghacker.co"/>
+  <link href="https://marketinghacker.co/tag/general/feed.xml" rel="self"/>
+  <updated>2016-03-25T18:02:00+00:00</updated>
+  <author>
+    <name>Eric Raio</name>
+  </author>
+  <entry>
+    <title>Talking about Growth</title>
+    <link rel="alternate" href="https://marketinghacker.co/talking-about-growth/"/>
+    <id>https://marketinghacker.co/talking-about-growth/</id>
+    <published>2016-03-25T18:02:00+00:00</published>
+    <updated>2016-04-13T15:10:09+00:00</updated>
+    <author>
+      <name>Eric Raio</name>
+    </author>
+    <summary type="html">You know the feeling when you create something awesome and you
+have spent countless days and nights working on it.
+You tell your friends and family about your new creative and they love it.
+You release it on the internet and sit and waiting for customers</summary>
+  </entry>
+</feed>
